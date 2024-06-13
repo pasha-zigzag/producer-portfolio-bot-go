@@ -2,9 +2,8 @@ package main
 
 import (
 	"log"
-
-	"producer-portfolio-bot/config"
-	"producer-portfolio-bot/handlers"
+	"producer-portfolio-bot/internal/config"
+	"producer-portfolio-bot/internal/handlers"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
@@ -28,6 +27,8 @@ func main() {
 	for update := range updates {
 		if update.Message != nil {
 			go handlers.HandleMessage(bot, update.Message)
+		} else if update.CallbackQuery != nil {
+			go handlers.HandleCallbackQuery(bot, update.CallbackQuery)
 		}
 	}
 }
