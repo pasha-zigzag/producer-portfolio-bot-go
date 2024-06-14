@@ -11,11 +11,12 @@ func showWorks(bot *tgbotapi.BotAPI, chatID int64) {
 	// Создание инлайн клавиатуры
 	var inlineKeyboard = tgbotapi.NewInlineKeyboardMarkup(
 		tgbotapi.NewInlineKeyboardRow(
-			tgbotapi.NewInlineKeyboardButtonData("Rock/Blues-Rock/Alternative", "ROCK"),
-			tgbotapi.NewInlineKeyboardButtonData("Indie/Pop", "POP"),
+			tgbotapi.NewInlineKeyboardButtonData("Аранжировка/Mixing", "MIXING"),
+			tgbotapi.NewInlineKeyboardButtonData("Саундтреки", "SOUNDTRACK"),
 		),
 		tgbotapi.NewInlineKeyboardRow(
-			tgbotapi.NewInlineKeyboardButtonData("Live/концерты", "LIVE"),
+			tgbotapi.NewInlineKeyboardButtonData("Реклама", "AD"),
+			tgbotapi.NewInlineKeyboardButtonData("Саунд-дизайн", "DESIGN"),
 		),
 	)
 
