@@ -1,7 +1,7 @@
 package genre
 
 import (
-	"log"
+	"producer-portfolio-bot/internal/common"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api/v5"
 )
@@ -34,16 +34,7 @@ func SendMixingAudio(bot *tgbotapi.BotAPI, chatID int64) {
 		{"audio/Явление Music - Ты Победил.mp3", youWinMsg},
 	}
 
-	for _, audioFile := range audioFiles {
-		sendAudioWithText(bot, chatID, audioFile.Path, audioFile.Caption)
-	}
-}
-
-func sendAudioWithText(bot *tgbotapi.BotAPI, chatID int64, audioPath, caption string) {
-	audio := tgbotapi.NewAudio(chatID, tgbotapi.FilePath(audioPath))
-
-	audio.Caption = caption
-	if _, err := bot.Send(audio); err != nil {
-		log.Println("Failed to send audio:", err)
+	for i, audioFile := range audioFiles {
+		common.SendAudioWithText(bot, chatID, audioFile.Path, audioFile.Caption, i == len(audioFiles)-1)
 	}
 }

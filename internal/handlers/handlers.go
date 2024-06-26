@@ -36,7 +36,7 @@ func HandleCallbackQuery(bot *tgbotapi.BotAPI, callbackQuery *tgbotapi.CallbackQ
 	case "SOUNDTRACK":
 		genre.SendSoundtrackAudio(bot, callbackQuery.From.ID)
 	case "AD":
-	case "DESIGN":
+		genre.SendAdtAudio(bot, callbackQuery.From.ID)
 	default:
 		handleUnknown(bot, callbackQuery.Message.Chat.ID)
 	}
