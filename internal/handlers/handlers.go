@@ -31,10 +31,12 @@ func HandleCallbackQuery(bot *tgbotapi.BotAPI, callbackQuery *tgbotapi.CallbackQ
 		showWorks(bot, callbackQuery.From.ID)
 	case "CONTACT_ME":
 		showContacts(bot, callbackQuery.From.ID)
-	case "ROCK":
-	case "POP":
-		genre.SendIndiePopAudio(bot, callbackQuery.From.ID)
-	case "LIVE":
+	case "MIXING":
+		genre.SendMixingAudio(bot, callbackQuery.From.ID)
+	case "SOUNDTRACK":
+		genre.SendSoundtrackAudio(bot, callbackQuery.From.ID)
+	case "AD":
+	case "DESIGN":
 	default:
 		handleUnknown(bot, callbackQuery.Message.Chat.ID)
 	}
